@@ -1,0 +1,221 @@
+aid: certn-com
+name: Certn
+description: >-
+  Certn is a Canadian background screening platform headquartered in Victoria,
+  British Columbia, providing fast, FCRA / SOC 2 Type II / ISO 27001 compliant
+  background checks for employment, tenant, and partner screening across more
+  than 195 countries. The Certn platform delivers criminal record checks
+  (Canadian Basic and Enhanced, SOQUIJ Quebec, international), identity
+  verification (OneID across 13,500+ document types), employment, education,
+  and credential verification, credit reports, public records and social media
+  screening, reference checks, driver's abstract / MVR, and white-label
+  candidate experiences. Certn exposes a REST API used by 100+ ATS / HRIS
+  partners (Workable, Greenhouse, Lever, Workday and others) to embed
+  screening directly into hiring and leasing workflows, with webhook callbacks
+  for asynchronous result delivery. The legacy v1/v2 API (`api.certn.co`,
+  industry-split HR and Property Management surfaces) was deprecated on
+  2026-04-13 and will be retired on 2026-08-05; new integrations target the
+  CertnCentric API at `centric-api-docs.certn.co`.
+type: Index
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Background Checks
+  - Background Screening
+  - Identity Verification
+  - Criminal Record Checks
+  - Employment Verification
+  - Education Verification
+  - Credential Verification
+  - Credit Checks
+  - Reference Checks
+  - Tenant Screening
+  - Property Management
+  - Human Resources
+  - HR Tech
+  - Compliance
+  - FCRA
+  - SOC 2
+  - ISO 27001
+  - Canada
+url: https://raw.githubusercontent.com/api-evangelist/certn-com/refs/heads/main/apis.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.20'
+apis:
+  - aid: certn-com:certn-hr-api
+    name: Certn HR API (Legacy v1)
+    description: >-
+      Human Resources surface of the legacy Certn API used to invite applicants
+      to a hosted screening application, run instant "quick" screens from a
+      single request body, add package items to existing applicants, and list
+      applications for a team account. Production base URL `https://api.certn.co`
+      with `https://demo-api.certn.co` for testing. Token-authenticated.
+      Deprecated 2026-04-13; sunsets 2026-08-05 — new integrations should use
+      the CertnCentric API.
+    humanURL: https://docs.certn.co/api/certn-api-v-1.0/api-reference/hr
+    tags:
+      - Background Checks
+      - Human Resources
+      - Applicants
+      - Applications
+      - Packages
+      - Legacy
+    properties:
+      - type: Documentation
+        url: https://docs.certn.co/api/certn-api-v-1.0/api-reference/hr
+      - type: Documentation
+        url: https://docs.certn.co/api/certn-api-v-1.0
+      - type: BaseURL
+        url: https://api.certn.co
+      - type: BaseURL
+        url: https://demo-api.certn.co
+      - type: Deprecation
+        url: https://docs.certn.co/api/certn-api-v-1.0
+  - aid: certn-com:certn-pm-api
+    name: Certn Property Management API (Legacy v2)
+    description: >-
+      Property Management surface of the legacy Certn API for tenant
+      screening — invite an applicant to complete a screen, run an instant
+      quick screen, add packages to an existing applicant, and list
+      applications. Endpoints under `/api/v2/`. Production base URL
+      `https://api.certn.co`. Deprecated 2026-04-13; sunsets 2026-08-05.
+    humanURL: https://docs.certn.co/api/certn-api-v-1.0/api-reference/pm
+    tags:
+      - Background Checks
+      - Property Management
+      - Tenant Screening
+      - Applicants
+      - Applications
+      - Legacy
+    properties:
+      - type: Documentation
+        url: https://docs.certn.co/api/certn-api-v-1.0/api-reference/pm
+      - type: BaseURL
+        url: https://api.certn.co
+      - type: Deprecation
+        url: https://docs.certn.co/api/certn-api-v-1.0
+  - aid: certn-com:certncentric-api
+    name: CertnCentric API
+    description: >-
+      Next-generation Certn screening API replacing the deprecated v1/v2
+      industry-split surfaces. Provides a unified RESTful contract for
+      embedding background checks (criminal, identity, employment, education,
+      credit, references, MVR, public records, social media) into ATS, HRIS,
+      and property management workflows with webhook callbacks for
+      asynchronous results. This is the recommended integration path; the
+      legacy HR and PM APIs will be retired on 2026-08-05.
+    humanURL: https://centric-api-docs.certn.co/
+    tags:
+      - Background Checks
+      - Screening
+      - Identity Verification
+      - Webhooks
+      - REST
+    properties:
+      - type: Documentation
+        url: https://centric-api-docs.certn.co/
+      - type: Documentation
+        url: https://centric-api-docs.certn.co/#introduction
+      - type: BaseURL
+        url: https://api.certn.co
+  - aid: certn-com:certn-webhooks
+    name: Certn Webhooks
+    description: >-
+      Outbound webhook delivery for asynchronous screening events. Certn posts
+      JSON payloads containing applicant status, result, check_executions,
+      enhanced_identity_verification, rcmp_result, information, and
+      activity_log fields to a customer-configured endpoint configured in team
+      settings. Payloads are signed with an HMAC-SHA256 `Certn-Signature`
+      header carrying a timestamped signature (`t=<timestamp>,v1=<signature>`)
+      to prevent replay attacks.
+    humanURL: https://docs.certn.co/api/certn-api-v-1.0/guides/use-the-api/webhooks
+    tags:
+      - Webhooks
+      - Events
+      - Signing
+      - HMAC
+    properties:
+      - type: Documentation
+        url: https://docs.certn.co/api/certn-api-v-1.0/guides/use-the-api/webhooks
+      - type: Documentation
+        url: https://docs.certn.co/api/guides/use-the-api/webhooks
+common:
+  - type: Website
+    url: https://certn.co
+  - type: Portal
+    url: https://certn.co/background-screening-api/
+  - type: Documentation
+    url: https://docs.certn.co/api
+  - type: Documentation
+    url: https://centric-api-docs.certn.co/
+  - type: GettingStarted
+    url: https://docs.certn.co/api/certn-api-v-1.0
+  - type: Pricing
+    url: https://certn.co/pricing/
+  - type: SignUp
+    url: https://client.certn.co/ca/login
+  - type: Login
+    url: https://client.certn.co/ca/login
+  - type: PersonalProduct
+    url: https://mycrc.ca
+  - type: Blog
+    url: https://certn.co/blog/
+  - type: PrivacyPolicy
+    url: https://certn.co/privacy-policy/
+  - type: TermsOfService
+    url: https://vault.pactsafe.io
+  - type: Contact
+    url: https://certn.co/contact/
+  - type: Careers
+    url: https://certn.co/careers/
+  - type: TrustCenter
+    url: https://trust.certn.co/
+  - type: Support
+    url: https://certn.zendesk.com/hc/en-us
+  - type: HelpCenter
+    url: https://certn.zendesk.com/hc/en-us
+  - type: Partners
+    url: https://certn.co/partner-marketplace/
+  - type: Quote
+    url: https://certn.co/request-a-quote/
+  - type: CaseStudies
+    url: https://certn.co/resources/case-studies/
+  - type: GitHubOrganization
+    url: https://github.com/certn
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/certn
+  - type: Integration
+    url: https://help.workable.com/hc/en-us/articles/360017580593-Integrating-with-Certn
+  - type: Features
+    data:
+      - Canadian Basic and Enhanced criminal record checks with RCMP-aligned results
+      - Quebec SOQUIJ record checks
+      - International criminal background checks across 200+ countries and territories
+      - OneID identity verification supporting 13,500+ government document types
+      - Employment, education, and professional credential verification
+      - Credit report and public records checks
+      - Social media screening
+      - Phone and digital reference checks
+      - Driver's abstract / motor vehicle records (MVR) checks
+      - Personal background checks via mycrc.ca consumer brand
+      - White-label candidate experience embeddable in customer ATS/HRIS
+      - 100+ pre-built integrations including Workable, Greenhouse, Lever, Workday
+      - REST API with token authentication and demo (`demo-api.certn.co`) environment
+      - Outbound webhooks with HMAC-SHA256 signed payloads (`Certn-Signature`) and replay protection
+      - Rate limits — 120 requests/minute burst, 14,400 requests/24h sustained
+      - FCRA, SOC 2 Type II, and ISO 27001 compliance posture
+      - CertnCentric API replacing the legacy HR (`/hr/v1/`) and PM (`/api/v2/`) surfaces
+    sources:
+      - https://certn.co/background-screening-api/
+      - https://docs.certn.co/api
+      - https://docs.certn.co/api/certn-api-v-1.0
+      - https://centric-api-docs.certn.co/
+      - https://certn.co/pricing/
+      - https://docs.certn.co/api/certn-api-v-1.0/guides/use-the-api/webhooks
+    updated: '2026-05-25'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
