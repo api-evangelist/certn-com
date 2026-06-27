@@ -154,7 +154,7 @@ common:
     url: https://docs.certn.co/api/certn-api-v-1.0
   - type: Pricing
     url: https://certn.co/pricing/
-  - type: SignUp
+  - type: Signup
     url: https://client.certn.co/ca/login
   - type: Login
     url: https://client.certn.co/ca/login
@@ -186,7 +186,7 @@ common:
     url: https://github.com/certn
   - type: LinkedIn
     url: https://www.linkedin.com/company/certn
-  - type: Integration
+  - type: Integrations
     url: https://help.workable.com/hc/en-us/articles/360017580593-Integrating-with-Certn
   - type: Features
     data:
