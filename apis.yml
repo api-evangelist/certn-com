@@ -142,6 +142,10 @@ apis:
       - type: Documentation
         url: https://docs.certn.co/api/guides/use-the-api/webhooks
 common:
+  - type: VulnerabilityDisclosure
+    url: security/certn-com-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/certn-com-domain-security.yml
   - type: Website
     url: https://certn.co
   - type: Portal
